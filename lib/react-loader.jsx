@@ -30,7 +30,12 @@
       className: React.PropTypes.string,
       zIndex:    React.PropTypes.number,
       top:       React.PropTypes.string,
-      left:      React.PropTypes.string
+      left:      React.PropTypes.string,
+      delay:     React.PropTypes.number
+    },
+
+    getDefaultProps: function() {
+      return { delay: 0 };
     },
 
     getInitialState: function () {
@@ -59,6 +64,7 @@
       // update spinner options, if supplied
       var allowedOptions = Object.keys(this.constructor.propTypes);
       allowedOptions.splice(allowedOptions.indexOf('loaded'), 1);
+      allowedOptions.splice(allowedOptions.indexOf('delay'), 1);
 
       allowedOptions.forEach(function (key) {
         if (key in props) {
@@ -70,13 +76,16 @@
     },
 
     spin: function () {
-      if (this.isMounted() && !this.state.loaded) {
-        var spinner = new Spinner(this.state.options);
-        var target = this.refs.loader.getDOMNode();
-
-        // clear out any other spinners from previous renders
-        target.innerHTML = '';
-        spinner.spin(target);
+      var that = this;
+      if (that.isMounted() && !that.state.loaded) {
+        setTimeout(function () {
+          if (that.state.loaded) return;
+          var spinner = new Spinner(that.state.options);
+          var target = that.refs.loader.getDOMNode();
+          // clear out any other spinners from previous renders
+          target.innerHTML = '';
+          spinner.spin(target);
+        }, that.props.delay);
       }
     },
 
