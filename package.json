@@ -33,6 +33,9 @@
     "url": "https://github.com/quickleft/react-loader/issues"
   },
   "homepage": "https://github.com/quickleft/react-loader",
+  "dependencies": {
+    "spin": "0.0.1"
+  },
   "devDependencies": {
     "browserify": "^5.9.1",
     "chai": "^1.9.1",
@@ -40,7 +43,6 @@
     "mocha-phantomjs": "^3.5.0",
     "react": "^0.10.0",
     "react-tools": "^0.11.1",
-    "reactify": "^0.14.0",
-    "spin": "0.0.1"
+    "reactify": "^0.14.0"
   }
 }
