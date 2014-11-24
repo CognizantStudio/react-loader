@@ -33,7 +33,7 @@
     "url": "https://github.com/quickleft/react-loader/issues"
   },
   "homepage": "https://github.com/quickleft/react-loader",
-  "dependancies": {
+  "dependencies": {
     "spin": "0.0.1"
   },
   "devDependencies": {
