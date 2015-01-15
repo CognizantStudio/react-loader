@@ -21,6 +21,17 @@ application's `package.json` or `bower.json` file.
 
 ## Usage
 
+If using require.js, ensure that [spin.js](http://fgnass.github.io/spin.js/)) is
+available as the module 'spin'.
+
+    require.config({
+        // ...
+        paths: {
+            // ...
+            'spin': 'path/to/spin.js'
+        }
+    });
+
 Wrap the Loader component around your loading content within your React
 component's `render` function.
 

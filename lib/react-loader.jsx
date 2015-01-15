@@ -3,9 +3,9 @@
 (function (root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-    define(['react', 'spin.js'], factory);
+    define(['react', 'spin'], factory);
   } else if (typeof module === 'object' && typeof module.exports === 'object') {
-    module.exports = factory(require('react'), require('spin.js'));
+    module.exports = factory(require('react'), require('spin'));
   } else {
     root.Loader = factory(root.React, root.Spinner);
   }
