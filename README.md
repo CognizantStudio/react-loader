@@ -118,6 +118,79 @@ like the following:
 Once the content is loaded and the spinner is removed, the DOM node is given a
 class of "loadedContent".
 
+### Use in flux
+
+In the view:
+
+    <Loader loaded={!this.state.data.isLoading} ... />
+
+When send a xhr request:
+
+    ...
+    componentDidMount: function () {
+        sampleStore.addChangeListener(this._change);
+
+        if (this.isMounted()) {
+
+            SampleActions.setIsLoading();
+            SampleActions.loadData(); 
+        }
+    },
+    ..
+
+And in SampleActions.js:
+
+    ...
+    setIsLoading: function (params) {
+        PlatformDispatcher.dispatch({
+            actionType: 'order_statistic_set_isLoading',
+            item: params
+        });
+    },
+    ...
+
+Then in sampleStore.js:
+
+    PlatformDispatcher.register(function (payload) {
+        var actionType = payload.actionType;
+
+        switch (actionType) {
+            ...
+            case 'order_statistic_set_isLoading':
+              orderStatisticStore.setIsLoading(payload.item);
+              break;
+            ...
+        }
+    });
+
+    OrderStatisticStore.prototype = assign({}, EventEmitter.prototype, {
+        setIsLoading: function (params) {
+            // when send a xhr request, change state
+            this.data.isLoading = true;
+            this.emit('change');
+        },
+        loadData: function (params, callback) {
+            var params = params || {};
+
+            // send request
+            PlatformRequest.getQuestHandle({
+                url: ...,
+                data: {
+                    ...
+                }
+            }, function (res) {
+                // when success, change the state of isLoading
+                this.data.isLoading = false;
+                this.data... = res;
+                this.emitChange();
+                callback && callback();
+            }.bind(this));
+        },
+        ...
+    });
+
+
+
 ## Contributing
 
 To contribute:
