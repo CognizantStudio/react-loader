@@ -35,7 +35,7 @@
     },
 
     getDefaultProps: function () {
-      return { component: 'div' };
+      return { component: 'div', loadedClassName: 'loadedContent' };
     },
 
     getInitialState: function () {
