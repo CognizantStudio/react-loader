@@ -96,7 +96,7 @@
         props = { key: 'content', className: 'loadedContent' };
         children = this.props.children;
       } else {
-        props = { key: 'loader', ref: 'loader', className: 'loader' };
+        props = { key: 'loader', ref: 'loader', className: this.props.className || 'loader' };
       }
 
       return React.createElement(this.props.component, props, children);

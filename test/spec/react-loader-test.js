@@ -38,7 +38,15 @@ describe('Loader', function () {
     description: 'loading is complete with component option',
     props: { loaded: true, component: 'span' },
     expectedOutput: /<span class="loadedContent"[^>]*?>Welcome<\/span>/
-  }];
+  },
+  {
+    description: 'loading is in progress with custom className',
+    props: {
+      loaded: false,
+      className: 'my-loader-class'
+    },
+    expectedOutput: /<div class="my-loader-class"[^>]*?><div class="spinner"/
+  },];
 
   testCases.forEach(function (testCase) {
     describe(testCase.description, function () {
