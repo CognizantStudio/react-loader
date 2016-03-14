@@ -1,14 +1,14 @@
 (function (root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-    define(['react', 'react-dom', 'spin.js'], factory);
+    define(['react', 'react-dom', 'spin.js', 'exenv'], factory);
   } else if (typeof module === 'object' && typeof module.exports === 'object') {
-    module.exports = factory(require('react'), require('react-dom'), require('spin.js'));
+    module.exports = factory(require('react'), require('react-dom'), require('spin.js'), require('exenv'));
   } else {
-    root.Loader = factory(root.React, root.ReactDOM, root.Spinner);
+    root.Loader = factory(root.React, root.ReactDOM, root.Spinner, root.ExecutionEnvironment);
   }
 
-}(this, function (React, ReactDOM, Spinner) {
+}(this, function (React, ReactDOM, Spinner, ExecutionEnvironment) {
 
   var Loader = React.createClass({
     propTypes: {
@@ -85,7 +85,7 @@
     },
 
     spin: function () {
-      if (this.isMounted() && !this.state.loaded) {
+      if (ExecutionEnvironment.canUseDOM && this.isMounted() && !this.state.loaded) {
         var spinner = new Spinner(this.state.options);
         var target =  ReactDOM.findDOMNode(this.refs.loader);
 
