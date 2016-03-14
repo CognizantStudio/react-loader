@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/quickleft/react-loader",
   "dependencies": {
+    "exenv": "^1.2.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "spin.js": "2.x"
