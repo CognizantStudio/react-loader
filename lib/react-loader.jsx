@@ -51,7 +51,7 @@
       return { loaded: false, options: {} };
     },
 
-    componentDidMount: function () {
+    componentWillMount: function () {
       this.updateState(this.props);
     },
 
