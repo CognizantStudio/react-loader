@@ -1,7 +1,7 @@
 {
   "name": "react-loader",
   "description": "React component that displays a spinner via spin.js until your component is loaded",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "main": "lib/react-loader.js",
   "scripts": {
     "build": "./node_modules/.bin/jsx -x jsx lib lib",
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/quickleft/react-loader",
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0 || ~16.0.0",
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "dependencies": {
