@@ -5,4 +5,5 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
+      - run: npm install
       - run: npm test
