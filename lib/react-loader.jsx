@@ -9,6 +9,7 @@
   }
 
 }(this, function (React, ReactDOM, Spinner, PropTypes, createReactClass) {
+  var hasCreateRef = !!React.createRef;
 
   var Loader = createReactClass({
     propTypes: {
@@ -48,6 +49,7 @@
     },
 
     getInitialState: function () {
+      this.ref = hasCreateRef ? React.createRef() : 'loader';
       return { loaded: false, options: {} };
     },
 
@@ -100,7 +102,13 @@
 
       if (canUseDOM && !this.state.loaded) {
         var spinner = new Spinner(this.state.options);
-        var target =  ReactDOM.findDOMNode(this.refs.loader);
+        var target;
+
+        if (hasCreateRef) {
+          target = this.ref.current;
+        } else {
+          target =  ReactDOM.findDOMNode(this.refs.loader);
+        }
 
         // clear out any other spinners from previous renders
         target.innerHTML = '';
@@ -115,7 +123,7 @@
         props = { key: 'content', className: this.props.loadedClassName };
         children = this.props.children;
       } else {
-        props = { key: 'loader', ref: 'loader', className: this.props.parentClassName };
+        props = { key: 'loader', ref: this.ref, className: this.props.parentClassName };
       }
 
       return React.createElement(this.props.component, props, children);
