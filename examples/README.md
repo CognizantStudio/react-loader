@@ -2,6 +2,8 @@
 
 ### Demo
 
+You can check a example with hooks here:
+
 [![Edit react-loader](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/optimistic-hooks-4ihxj?fontsize=14)
 
 ## Simple Example
