@@ -1,7 +1,7 @@
 {
   "name": "react-loader",
   "description": "React component that displays a spinner via spin.js until your component is loaded",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "main": "lib/react-loader.js",
   "scripts": {
     "build": "./node_modules/.bin/jsx -x jsx lib lib",
