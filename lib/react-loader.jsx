@@ -57,7 +57,7 @@
       this.updateState(this.props);
     },
 
-    componentWillReceiveProps: function (nextProps) {
+    UNSAFE_componentWillReceiveProps: function (nextProps) {
       this.updateState(nextProps);
     },
 

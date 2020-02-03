@@ -43,10 +43,10 @@
     "spin.js": "2.x"
   },
   "devDependencies": {
-    "browserify": "^5.9.1",
+    "browserify": "^16.5.0",
     "chai": "^1.9.1",
     "es6-shim": "0.35.3",
-    "mocha": "^2.4.5",
+    "mocha": "^7.0.1",
     "mocha-phantomjs": "^4.0.2",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
