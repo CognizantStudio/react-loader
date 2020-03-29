@@ -12,6 +12,11 @@ describe('Loader', function () {
     expectedOutput: /<div [^>]*?class="loader"[^>]*?><div [^>]*?class="spinner"/
   },
   {
+    description: 'loading is in progress with a message on the loader',
+    props: { loaded: false, message: 'Loading...' },
+    expectedOutput: /<div [^>]*?class="loader"[^>]*?><div [^>]*?class="spinner" [^>]*? Loading.../
+  },
+  {
     description: 'loading is in progress with component option',
     props: { loaded: false, component: 'span' },
     expectedOutput: /<span [^>]*?class="loader"[^>]*?><div [^>]*?class="spinner"/

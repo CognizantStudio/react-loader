@@ -21,7 +21,7 @@
     }
     button{
       position: absolute;
-      top: calc(50% + 38px);
+      top: calc(50% + 50px);
       left: calc(50% - 26px);
     }
   </style>
@@ -55,8 +55,8 @@
 
       render: function() {
         return (
-          <div className="demo">
-            <Loader loaded={this.state.loaded}>
+          <div className="">
+            <Loader message='Loading...' loaded={this.state.loaded}>
               <div className="card">{this.state.data}</div>
             </Loader>
             <button onClick={this.simulateLoad} disabled={!this.state.loaded}>Reload</button>
